@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>James Mutugi Njogu - Experience</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            background-image: url('experience.jpg'); /* Add background image */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: rgba(10, 25, 47, 0.7);
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        header img {
+            width: 100px;
+            height: auto;
+            margin-right: 20px;
+            border-radius: 50%;
+        }
+
+        nav {
+            margin: 20px 0;
+            text-align: center;
+            animation: slideInDown 0.5s ease-out;
+        }
+
+        nav a {
+            color: #64ffda;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+            display: inline-block;
+            position: relative;
+        }
+
+        nav a:after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            transform: scaleX(0);
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #fff;
+            transform-origin: bottom right;
+            transition: transform 0.3s ease-out;
+        }
+
+        nav a:hover {
+            color: #fff;
+        }
+
+        nav a:hover:after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+
+        section {
+            padding: 40px;
+            max-width: 900px;
+            margin: 50px auto;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            transform: translateY(-20px);
+            animation: fadeInUp 1s ease-out;
+        }
+
+        h2 {
+            color: #0a192f;
+            border-bottom: 3px solid #64ffda;
+            padding-bottom: 5px;
+            margin-bottom: 20px;
+            animation: slideInLeft 0.5s ease-out;
+        }
+
+        p {
+            animation: fadeIn 1s ease-out;
+        }
+
+        ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 5px;
+        }
+
+        footer {
+            background: #0a192f;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        /* Style for image containers */
+        .image-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        /* Style for project images */
+        .project-image {
+            width: 100%;
+            max-width: 300px; /* Set a maximum width */
+            height: 200px; /* Set a fixed height */
+            display: block;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, opacity 0.5s ease; /* Added opacity transition */
+            object-fit: cover; /* Ensure images fill the container */
+            animation: imageFadeIn 1s ease-out; /* Added fade-in animation */
+        }
+
+        .project-image:hover {
+            transform: scale(1.05);
+        }
+
+        /* Keyframes for image fade-in animation */
+        @keyframes imageFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="jay1.jpeg" alt="Profile Image">
+        <div>
+            <h1>James Mutugi Njogu</h1>
+            <p>Data Analyst | Programmer | IT Specialist</p>
+        </div>
+    </header>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="experience.html">Experience</a>
+        <a href="skills.html">Skills</a>
+        <a href="projects.html">Projects</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+    <section id="experience">
+        <h2>Experience</h2>
+
+        <p><strong>SpeedMax Net ISP - Customer & Technical Support (August 2025 - Present)</strong></p>
+        <div class="image-container">
+            <img src="internet1.jpg" alt="SpeedMax Net ISP" class="project-image">
+            <img src="internet2.jpg" alt="SpeedMax Net ISP" class="project-image">
+            <img src="internet3.jpg" alt="SpeedMax Net ISP" class="project-image">
+               <img src="internet4.jpg" alt="SpeedMax Net ISP" class="project-image">
+        </div>
+        <ul>
+            <li>Delivered first-line technical support to internet and TV service customers, resolving issues related to connectivity, speed, and service interruptions.</li>
+            <li>Troubleshot and repaired wireless access points and other hardware, ensuring optimal network performance.</li>
+            <li>Provided remote support via phone and email, guiding customers through troubleshooting steps to resolve their issues.</li>
+        </ul>
+
+        <p><strong>Ronald's LLP Audit Firm - IT Support (March 2024 - October 2024)</strong></p>
+        <div class="image-container">
+            <img src="audit3.jpg" alt="Audit Firm" class="project-image">
+            <img src="audit2.jpg" alt="Audit Firm" class="project-image">
+            <img src="audit1.jpg" alt="Audit Firm" class="project-image">
+              <img src="audit4.jpg" alt="Audit Firm" class="project-image">
+        </div>
+        <ul>
+            <li>Provide comprehensive IT support for a large-scale accounting and audit firm, ensuring a reliable and efficient technology environment for over 100 users.</li>
+            <li>Installed and maintained a network printer system, resolving connectivity issues and streamlining printing operations.</li>
+            <li>Managed and updated company software licenses, ensuring compliance and optimizing software costs.</li>
+            <li>Diagnosed and resolved hardware and software issues for laptops, desktops, and company servers, minimizing downtime and improving productivity.</li>
+            <li>Provided support for both Windows and Mac operating systems.</li>
+        </ul>
+    </section>
+    <footer>
+        <p>© 2024 James Mutugi Njogu. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

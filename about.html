@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>James Mutugi Njogu - About</title>
+     <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            background-image: url('about.jpg'); /* Add background image */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: #333;
+            overflow-x: hidden; /* Prevent horizontal scroll */
+        }
+
+        header {
+            background: rgba(10, 25, 47, 0.7); /* Semi-transparent header */
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        header img {
+            width: 100px;
+            height: auto;
+            margin-right: 20px;
+            border-radius: 50%;
+        }
+
+        nav {
+            margin: 20px 0;
+            text-align: center;
+            animation: slideInDown 0.5s ease-out;
+        }
+
+        nav a {
+            color: #64ffda;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+            display: inline-block;
+            position: relative;
+        }
+
+        nav a:after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            transform: scaleX(0);
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #fff;
+            transform-origin: bottom right;
+            transition: transform 0.3s ease-out;
+        }
+
+        nav a:hover {
+            color: #fff;
+        }
+
+        nav a:hover:after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+
+        section {
+            padding: 40px;
+            max-width: 900px;
+            margin: 50px auto;
+            background-color: rgba(255, 255, 255, 0.9); /* More opaque section */
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            transform: translateY(-20px);
+            animation: fadeInUp 1s ease-out;
+        }
+
+        h2 {
+            color: #0a192f;
+            border-bottom: 3px solid #64ffda;
+            padding-bottom: 5px;
+            margin-bottom: 20px;
+            animation: slideInLeft 0.5s ease-out;
+        }
+
+        p {
+            animation: fadeIn 1s ease-out;
+        }
+
+        footer {
+            background: #0a192f;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        /* Keyframes for animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInDown {
+            from {
+                transform: translateY(-50px);
+            }
+            to {
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                transform: translateX(-50px);
+            }
+            to {
+                transform: translateX(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="jay1.jpeg" alt="Profile Image">
+        <div>
+            <h1>James Mutugi Njogu</h1>
+            <p>Data Analyst | Programmer | IT Specialist</p>
+        </div>
+    </header>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="experience.html">Experience</a>
+        <a href="skills.html">Skills</a>
+        <a href="projects.html">Projects</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+    <section id="about">
+        <img src="jay1.jpeg" alt="Profile Picture" style="width:150px;border-radius:50%;margin-top:20px;animation: fadeIn 1s ease-in-out;">
+        <h2>About Me</h2>
+        <p>I am a highly-skilled and passionate IT Support Specialist with a Diploma in IT and a Certificate in Data Science, with a track record of driving business growth, ensuring operational efficiency, and reducing costs through strategic technology implementation and support.</p>
+        <p>In addition to my IT expertise, I am a seasoned Data Analyst with hands-on experience in collecting, cleaning, and interpreting data to provide actionable insights. My strong foundation in IT, programming, and data analysis allows me to bridge the gap between technical operations and data-driven business decisions.</p>
+        <p>I am proficient in various programming languages, including Python and JavaScript, and have experience with technologies like MySQL, HTML, CSS, and GitHub.</p>
+        <p>My career is driven by a passion for continuous learning and a commitment to helping organizations achieve their goals through technology.</p>
+    </section>
+    <footer>
+        <p>© 2025 James Mutugi Njogu. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
