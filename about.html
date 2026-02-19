@@ -5,120 +5,264 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>James Mutugi Njogu - About</title>
      <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        /* Page-specific styles - About page content layout */
+        .about-container {
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            gap: 40px;
             margin: 0;
-            padding: 0;
-            line-height: 1.6;
-            background-image: url('about.jpg'); /* Add background image */
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            color: #333;
-            overflow-x: hidden; /* Prevent horizontal scroll */
+            align-items: start;
         }
 
-        header {
-            background: rgba(10, 25, 47, 0.7); /* Semi-transparent header */
-            color: #fff;
-            padding: 20px;
+        .profile-card {
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+            padding: 32px 24px;
+            border-radius: 14px;
+            box-shadow: 0 12px 32px rgba(15, 23, 42, 0.1);
             text-align: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            animation: fadeIn 1s ease-in-out;
+            border: 1px solid rgba(148, 163, 184, 0.1);
+            position: sticky;
+            top: 140px;
+            transition: transform 260ms ease, box-shadow 260ms ease;
         }
 
-        header img {
-            width: 100px;
-            height: auto;
-            margin-right: 20px;
+        .profile-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 48px rgba(14, 165, 233, 0.15);
+        }
+
+        .profile-card img {
+            width: 160px;
+            height: 160px;
             border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+            border: 5px solid #0ea5e9;
+            transition: transform 320ms ease, box-shadow 320ms ease;
         }
 
-        nav {
-            margin: 20px 0;
-            text-align: center;
-            animation: slideInDown 0.5s ease-out;
+        .profile-card:hover img {
+            transform: scale(1.08);
+            box-shadow: 0 12px 28px rgba(14, 165, 233, 0.3);
         }
 
-        nav a {
-            color: #64ffda;
-            margin: 0 15px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: color 0.3s ease;
+        .profile-card h3 {
+            margin: 12px 0 6px 0;
+            color: #0f172a;
+            font-size: 22px;
+            font-weight: 700;
+        }
+
+        .profile-card p.role {
+            margin: 0 0 12px 0;
+            color: #0ea5e9; 
+            font-weight: 700;
+            font-size: 13px;
+            letter-spacing: 0.5px;
+        }
+
+        .cta-btn {
             display: inline-block;
-            position: relative;
-        }
-
-        nav a:after {
-            content: '';
-            position: absolute;
-            width: 100%;
-            transform: scaleX(0);
-            height: 2px;
-            bottom: 0;
-            left: 0;
-            background-color: #fff;
-            transform-origin: bottom right;
-            transition: transform 0.3s ease-out;
-        }
-
-        nav a:hover {
+            margin-top: 6px;
+            margin-right: 6px;
+            padding: 10px 16px;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
             color: #fff;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 13px;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            border: none;
+            cursor: pointer;
         }
 
-        nav a:hover:after {
-            transform: scaleX(1);
-            transform-origin: bottom left;
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(15, 23, 42, 0.3);
         }
 
         section {
-            padding: 40px;
-            max-width: 900px;
+            padding: 60px 50px;
+            max-width: 1100px;
             margin: 50px auto;
-            background-color: rgba(255, 255, 255, 0.9); /* More opaque section */
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-            transform: translateY(-20px);
-            animation: fadeInUp 1s ease-out;
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(148, 163, 184, 0.1);
+            backdrop-filter: blur(10px);
         }
 
         h2 {
-            color: #0a192f;
-            border-bottom: 3px solid #64ffda;
-            padding-bottom: 5px;
-            margin-bottom: 20px;
-            animation: slideInLeft 0.5s ease-out;
+            color: #0f172a;
+            border-bottom: 3px solid #0ea5e9;
+            padding-bottom: 8px;
+            margin-bottom: 24px;
+            font-size: 28px;
         }
 
-        p {
-            animation: fadeIn 1s ease-out;
+        @media (max-width: 768px) {
+            .about-container { grid-template-columns: 1fr; }
+            .profile-card { position: relative; top: 0; }
+            section { padding: 40px 24px; margin: 30px auto; }
         }
 
-        footer {
-            background: #0a192f;
-            color: #fff;
-            text-align: center;
-            padding: 10px;
+        /* Generic reveal pattern - override*/
+        .reveal { transform: translateY(12px); opacity: 0; transition: transform 520ms cubic-bezier(0.4,0,0.2,1), opacity 520ms ease-in-out; }
+        .reveal.in-view { transform: translateY(0); opacity: 1; }
+
+        /* Floating subtle animation for profile image */
+        @keyframes floatY { 0% { transform: translateY(0); } 50% { transform: translateY(-6px); } 100% { transform: translateY(0); } }
+        .profile-card.in-view img { animation: floatY 6s ease-in-out infinite; }
+
+        .bio {
+            padding: 0;
+        }
+
+        .content-section {
+            margin-bottom: 42px;
+            padding-bottom: 40px;
+            border-bottom: 2px solid #e2e8f0;
+        }
+
+        .content-section:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .bio h3 {
+            color: #0f172a;
+            font-weight: 700;
+            font-size: 18px;
+            margin: 0 0 14px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .bio h3::before {
+            content: '';
+            width: 4px;
+            height: 24px;
+            background: linear-gradient(135deg, #3b82f6, #0ea5e9);
+            border-radius: 2px;
+        }
+
+        .bio p, .bio ul {
+            color: #475569;
+            line-height: 1.8;
+            margin: 0 0 12px 0;
+        }
+
+        .bio p {
+            font-size: 15px;
+        }
+
+        .bio ul {
+            padding-left: 24px;
+            list-style: none;
+        }
+
+        .bio ul li {
+            margin-bottom: 10px;
             position: relative;
-            bottom: 0;
-            width: 100%;
-            animation: fadeIn 1s ease-in-out;
+            padding-left: 0;
+            font-size: 15px;
         }
 
-        /* Keyframes for animations */
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+        .bio ul li::before {
+            content: '✓';
+            position: absolute;
+            left: -24px;
+            color: #0ea5e9;
+            font-weight: bold;
+            font-size: 16px;
         }
 
-        @keyframes fadeInUp {
+        .highlights {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+
+        .highlight {
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            padding: 18px;
+            border-radius: 12px;
+            border: 1px solid rgba(71, 85, 105, 0.1);
+            border-left: 4px solid #0ea5e9;
+            font-size: 14px;
+            color: #1e293b;
+            transition: all 0.3s ease;
+        }
+        
+        .highlight:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 28px rgba(14, 165, 233, 0.15);
+            border-color: #0ea5e9;
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+        }
+
+        .highlight strong {
+            color: #0f172a;
+            display: block;
+            margin-bottom: 8px;
+            font-size: 15px;
+        }
+
+        .skills-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        .skill-bar {
+            margin-bottom: 20px;
+        }
+
+        .skill-label { 
+            display: flex; 
+            justify-content: space-between; 
+            font-size: 14px; 
+            font-weight: 600; 
+            color: #0f172a; 
+            margin-bottom: 10px;
+            align-items: center;
+        }
+
+        .skill-label span:last-child {
+            color: #0ea5e9;
+            font-weight: 700;
+            min-width: 45px;
+            text-align: right;
+        }
+
+        .bar { 
+            background: linear-gradient(90deg, #e0e7ff 0%, #f3e8ff 100%);
+            height: 12px; 
+            border-radius: 999px; 
+            overflow: hidden; 
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05), 0 4px 12px rgba(0, 0, 0, 0.08);
+            position: relative;
+        }
+
+        .skill-fill { 
+            height: 100%; 
+            width: 0%; 
+            background: linear-gradient(90deg, #3b82f6 0%, #8b5cf6 50%, #ec4899 100%);
+            transition: width 600ms cubic-bezier(0.4,0,0.2,1);
+            border-radius: 999px;
+            box-shadow: 0 0 8px rgba(139, 92, 246, 0.4);
+            position: relative;
+        }
+
+        @keyframes slideInUp {
             from {
                 opacity: 0;
-                transform: translateY(50px);
+                transform: translateY(10px);
             }
             to {
                 opacity: 1;
@@ -126,31 +270,125 @@
             }
         }
 
-        @keyframes slideInDown {
-            from {
-                transform: translateY(-50px);
+        /* Additional Information Boxes */
+        .info-box {
+            font-size: 13px;
+            color: #64748b;
+            font-weight: 500;
+            margin: 6px 0 0 0;
+        }
+
+        .company-role {
+            font-size: 13px;
+            color: #64748b;
+            margin-top: 8px;
+        }
+
+        .company-role strong {
+            color: #0f172a;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 1024px) {
+            .about-container {
+                grid-template-columns: 1fr;
+                gap: 30px;
             }
-            to {
-                transform: translateY(0);
+
+            .profile-card {
+                position: static;
+            }
+
+            .highlights {
+                grid-template-columns: 1fr;
             }
         }
 
-        @keyframes slideInLeft {
-            from {
-                transform: translateX(-50px);
+        @media (max-width: 768px) {
+            section {
+                padding: 40px 24px;
+                margin: 30px auto;
             }
-            to {
-                transform: translateX(0);
+
+            h2 {
+                font-size: 24px;
+                margin-bottom: 25px;
+            }
+
+            .about-container {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .profile-card {
+                padding: 24px 18px;
+            }
+
+            .profile-card img {
+                width: 140px;
+                height: 140px;
+            }
+
+            .skills-list {
+                grid-template-columns: 1fr;
+            }
+
+            nav a {
+                margin: 0 10px;
+                font-size: 14px;
             }
         }
+
+        @media (max-width: 480px) {
+            section {
+                padding: 30px 16px;
+                border-radius: 12px;
+            }
+
+            h2 {
+                font-size: 20px;
+                padding-bottom: 10px;
+            }
+
+            .profile-card {
+                padding: 20px 16px;
+            }
+
+            .cta-btn {
+                display: block;
+                margin: 8px 0;
+                width: 100%;
+                padding: 12px 16px;
+            }
+
+            nav a {
+                margin: 0 8px;
+                font-size: 13px;
+            }
+        }
+        /* Header -> content transition helpers */
+        :root { --header-h: 120px; }
+        body { padding-top: var(--header-h); transition: padding-top 260ms ease; }
+        header {
+            position: fixed; top:0; left:0; right:0; z-index:1000;
+            --hp: 0;
+            transform: translateY(calc(var(--hp) * -10px)) scale(calc(1 - var(--hp) * 0.14));
+            transition: transform 260ms cubic-bezier(.2,.9,.3,1), box-shadow 260ms ease;
+            will-change: transform;
+        }
+        header.scrolled { box-shadow: 0 6px 20px rgba(0,0,0,0.18); }
+        header img { transition: transform 260ms ease; transform-origin: left center; }
+        header.content-reveal { box-shadow: 0 18px 60px rgba(14,165,233,0.12); }
     </style>
 </head>
-<body>
+<body data-bg="about">
     <header>
-        <img src="jay1.jpeg" alt="Profile Image">
+        <img src="jay1.jpg" alt="Profile Image">
         <div>
             <h1>James Mutugi Njogu</h1>
-            <p>Data Analyst | Programmer | IT Specialist</p>
+            <p>Software Engineer | Data Analyst | IT Specialist</p>
         </div>
     </header>
     <nav>
@@ -162,15 +400,156 @@
         <a href="contact.html">Contact</a>
     </nav>
     <section id="about">
-        <img src="jay1.jpeg" alt="Profile Picture" style="width:150px;border-radius:50%;margin-top:20px;animation: fadeIn 1s ease-in-out;">
         <h2>About Me</h2>
-        <p>I am a highly-skilled and passionate IT Support Specialist with a Diploma in IT and a Certificate in Data Science, with a track record of driving business growth, ensuring operational efficiency, and reducing costs through strategic technology implementation and support.</p>
-        <p>In addition to my IT expertise, I am a seasoned Data Analyst with hands-on experience in collecting, cleaning, and interpreting data to provide actionable insights. My strong foundation in IT, programming, and data analysis allows me to bridge the gap between technical operations and data-driven business decisions.</p>
-        <p>I am proficient in various programming languages, including Python and JavaScript, and have experience with technologies like MySQL, HTML, CSS, and GitHub.</p>
-        <p>My career is driven by a passion for continuous learning and a commitment to helping organizations achieve their goals through technology.</p>
+        <div class="about-container">
+            <aside class="profile-card reveal">
+                <img src="jay1.jpg" alt="Profile image">
+                <h3>James Mutugi Njogu</h3>
+                <p class="role">Data Analyst • Programmer • IT Specialist</p>
+                <p class="info-box">Mathematics & Computer Science</p>
+                    <div style="margin-top:14px;">
+                    <a class="cta-btn" href="contact.html">Get in touch</a>
+                    <a class="cta-btn" href="assets/Mutugi James Njogu Resume.pdf" style="background:#3b82f6;" download>Download CV</a>
+                </div>
+            </aside>
+
+            <div class="bio">
+                <div class="content-section">
+                    <h3>Education</h3>
+                    <p><strong>Bachelor of Science in Mathematics and Computer Science</strong></p>
+                    <p class="info-box">Kenya Methodist University — September 2021 to April 2024</p>
+                </div>
+
+                <div class="content-section">
+                    <h3>Professional Summary</h3>
+                    <p>A highly motivated and skilled programmer with a strong foundation in multiple programming languages and operating systems. Recognized for completing certifications and courses that demonstrate commitment to mastering industry standards and practices.</p>
+                    <ul>
+                        <li>Successfully obtained a programming preparation Certificate from Moringa School and a Cisco C++ Certification.</li>
+                        <li>Proficient in JavaScript, Python, PHP and C++.</li>
+                        <li>Experience in data analysis: data cleaning & wrangling (Excel, SQL, Python), database management (MySQL), and visualization tools.</li>
+                        <li>Experience as IT Application Support Manager, IT Support specialist, and customer/technical support professional.</li>
+                    </ul>
+                </div>
+
+                <div class="content-section">
+                    <h3>Work Experience</h3>
+                    <div class="highlights">
+                        <div class="highlight reveal">
+                            <strong>Mgeni Online Limited</strong>
+                            <div class="company-role"><strong>IT Support Manager</strong><br>Lead IT operations for cloud-based Digital Visitor Management System (VMS). Managed deployments, cloud infrastructure, access control, data protection compliance.</div>
+                        </div>
+                        <div class="highlight reveal">
+                            <strong>Ronald's LLP</strong>
+                            <div class="company-role"><strong>IT Support & Technician</strong><br>Google Workspace rollout & training, IP phone management, network maintenance, hardware support and software upgrades.</div>
+                        </div>
+                        <div class="highlight reveal">
+                            <strong>SpeedMax Net</strong>
+                            <div class="company-role"><strong>Customer Care & Technical Support</strong><br>ISP-level customer support, network troubleshooting, ticketing systems and on-site/remote installations.</div>
+                        </div>
+                        <div class="highlight reveal">
+                            <strong>Mashreeq Investments</strong>
+                            <div class="company-role"><strong>Procurement & Tendering Officer</strong><br>International tender submissions, technical proposals, pricing and compliance documentation.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h3>Technical Skills</h3>
+                    <div class="skills-list">
+                        <div class="skill-bar">
+                            <div class="skill-label"><span>Python</span><span>85%</span></div>
+                            <div class="bar"><div class="skill-fill" data-percent="85"></div></div>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-label"><span>JavaScript</span><span>80%</span></div>
+                            <div class="bar"><div class="skill-fill" data-percent="80"></div></div>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-label"><span>SQL / MySQL</span><span>78%</span></div>
+                            <div class="bar"><div class="skill-fill" data-percent="78"></div></div>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-label"><span>Power BI</span><span>75%</span></div>
+                            <div class="bar"><div class="skill-fill" data-percent="75"></div></div>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-label"><span>Tableau</span><span>70%</span></div>
+                            <div class="bar"><div class="skill-fill" data-percent="70"></div></div>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-label"><span>Cloud & SaaS</span><span>72%</span></div>
+                            <div class="bar"><div class="skill-fill" data-percent="72"></div></div>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-label"><span>SysAdmin</span><span>74%</span></div>
+                            <div class="bar"><div class="skill-fill" data-percent="74"></div></div>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-label"><span>Data Cleaning</span><span>76%</span></div>
+                            <div class="bar"><div class="skill-fill" data-percent="76"></div></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h3>Professional Skills</h3>
+                    <ul>
+                        <li>Effective communication and technical training abilities</li>
+                        <li>Organizational excellence and multitasking capabilities</li>
+                        <li>Team collaboration with proven leadership experience</li>
+                        <li>Problem solving and analytical thinking</li>
+                    </ul>
+                </div>
+
+                <div class="content-section">
+                    <h3>Certifications</h3>
+                    <ul>
+                        <li>Moringa Prep Programming Certificate</li>
+                        <li>Cisco C++ Programming Certificate</li>
+                        <li>Cisco Java Programming Certificate</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </section>
+    <!-- about page animations are handled by assets/main.js -->
+    <script src="config.js"></script>
+    <script src="assets/main.js"></script>
     <footer>
-        <p>© 2025 James Mutugi Njogu. All Rights Reserved.</p>
+        <div class="footer-content">
+            <div class="footer-section footer-about">
+                <h4>James Mutugi Njogu</h4>
+                <p>Software Engineer | Enterprise Technology Leader</p>
+                <p class="footer-tagline">Transforming business through strategic technology solutions</p>
+            </div>
+            
+            <div class="footer-section footer-links">
+                <h5>Quick Links</h5>
+                <ul>
+                    <li><a href="index.html" aria-label="Home"><svg class="f-icon" viewBox="0 0 24 24" role="img" aria-hidden="false"><title>Navigate to Home</title><path d="M12 3l9 9-1.4 1.4L18 12.8V20a1 1 0 0 1-1 1h-4v-6H11v6H7a1 1 0 0 1-1-1v-7.2L4.4 13.4 3 12l9-9z" fill="currentColor"/></svg><span>Home</span><span class="sr-only">Navigate to Home</span><span class="underline" aria-hidden="true"></span></a></li>
+                    <li><a href="about.html" aria-label="About"><svg class="f-icon" viewBox="0 0 24 24" role="img" aria-hidden="false"><title>About</title><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z" fill="currentColor"/></svg><span>About</span><span class="sr-only">About this site</span><span class="underline" aria-hidden="true"></span></a></li>
+                    <li><a href="experience.html" aria-label="Experience"><svg class="f-icon" viewBox="0 0 24 24" role="img" aria-hidden="false"><title>Experience</title><path d="M4 4h16v4H4zM4 10h16v10H4z" fill="currentColor"/></svg><span>Experience</span><span class="sr-only">View experience</span><span class="underline" aria-hidden="true"></span></a></li>
+                    <li><a href="projects.html" aria-label="Projects"><svg class="f-icon" viewBox="0 0 24 24" role="img" aria-hidden="false"><title>Projects</title><path d="M3 7h18v2H3zm0 4h18v2H3zm0 4h18v2H3z" fill="currentColor"/></svg><span>Projects</span><span class="sr-only">See projects</span><span class="underline" aria-hidden="true"></span></a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section footer-contact">
+                <h5>Connect</h5>
+                <ul>
+                    <li><a href="mailto:your@email.com" aria-label="Email"><svg class="f-icon" viewBox="0 0 24 24" role="img" aria-hidden="false"><title>Email</title><desc>Send an email to James Mutugi Njogu</desc><path d="M3 8.5v7a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Email</span><span class="sr-only">Send an email to James Mutugi Njogu</span><span class="underline" aria-hidden="true"></span></a></li>
+                    <li><a href="https://linkedin.com" target="_blank" rel="noreferrer" aria-label="LinkedIn"><svg class="f-icon" viewBox="0 0 24 24" role="img" aria-hidden="false"><title>LinkedIn</title><desc>Open LinkedIn profile in a new tab</desc><path d="M16 8a4 4 0 0 1 4 4v6h-4v-6a2 2 0 0 0-4 0v6h-4v-12h4v2.3a4 4 0 0 1 4-2.3z" fill="currentColor"/></svg><span>LinkedIn</span><span class="sr-only">Open LinkedIn profile in a new tab</span><span class="underline" aria-hidden="true"></span></a></li>
+                    <li><a href="https://github.com" target="_blank" rel="noreferrer" aria-label="GitHub"><svg class="f-icon" viewBox="0 0 24 24" role="img" aria-hidden="false"><title>GitHub</title><desc>Open GitHub profile in a new tab</desc><path d="M12 .5C5.73.5.5 5.74.5 12.02c0 5.09 3.29 9.4 7.86 10.93.57.1.78-.25.78-.56 0-.28-.01-1.02-.02-2-3.2.7-3.88-1.37-3.88-1.37-.52-1.32-1.27-1.67-1.27-1.67-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.02 1.75 2.68 1.24 3.33.95.1-.74.4-1.24.73-1.52-2.56-.29-5.26-1.28-5.26-5.7 0-1.26.45-2.3 1.19-3.11-.12-.29-.52-1.46.11-3.04 0 0 .97-.31 3.18 1.19.92-.26 1.9-.39 2.88-.39.98 0 1.96.13 2.88.39 2.21-1.5 3.18-1.19 3.18-1.19.63 1.58.23 2.75.11 3.04.74.81 1.19 1.85 1.19 3.11 0 4.43-2.71 5.4-5.29 5.69.41.36.77 1.07.77 2.16 0 1.56-.01 2.82-.01 3.2 0 .31.21.67.79.56C20.71 21.42 24 17.11 24 12.02 24 5.74 18.27.5 12 .5z" fill="currentColor"/></svg><span>GitHub</span><span class="sr-only">Open GitHub profile in a new tab</span><span class="underline" aria-hidden="true"></span></a></li>
+                    <li><a href="contact.html" aria-label="Contact"><svg class="f-icon" viewBox="0 0 24 24" role="img" aria-hidden="false"><title>Contact</title><path d="M5 12h14"/><path d="M12 5l7 7-7 7" fill="currentColor"/></svg><span>Contact</span><span class="sr-only">Contact page</span><span class="underline" aria-hidden="true"></span></a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-divider"></div>
+        
+        <div class="footer-bottom">
+            <p class="copyright">© 2026 James Mutugi Njogu. All Rights Reserved.</p>
+            <p class="footer-credit">Crafted with precision | Enterprise Portfolio</p>
+        </div>
     </footer>
 </body>
 </html>

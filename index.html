@@ -3,251 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>James Mutugi Njogu - Portfolio</title>
+    <title>James Mutugi Njogu - Executive Portfolio</title>
     <link rel="stylesheet" href="styles.css">
-    <style>
-        /* Basic reset */
-        body, h1, h2, p, ul, li {
-            margin: 0;
-            padding: 0;
-            border: 0;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            background-image: url('home.jpg'); /* Add background image */
-            background-size: cover; /* Cover the entire body */
-            background-repeat: no-repeat; /* Prevent image from repeating */
-            background-attachment: fixed; /* Keep the background fixed during scrolling */
-            background-position: center center; /* Center the image */
-            color: #333;
-            overflow-x: hidden; /* Prevent horizontal scroll */
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-            align-items: center; /* Center content horizontally */
-        }
-
-        header {
-            background: rgba(10, 25, 47, 0.7); /* Semi-transparent header */
-            color: #fff;
-            padding: 20px;
-            text-align: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            animation: fadeIn 1s ease-in-out;
-            width: 100%;
-        }
-
-        header img {
-            width: 100px;
-            height: auto;
-            margin-right: 20px;
-            border-radius: 50%;
-        }
-
-        nav {
-            margin: 20px 0;
-            text-align: center;
-            animation: slideInDown 0.5s ease-out;
-            width: 100%;
-        }
-
-        nav a {
-            color: #64ffda;
-            margin: 0 15px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: color 0.3s ease;
-            display: inline-block;
-            position: relative;
-        }
-
-        nav a:after {
-            content: '';
-            position: absolute;
-            width: 100%;
-            transform: scaleX(0);
-            height: 2px;
-            bottom: 0;
-            left: 0;
-            background-color: #fff;
-            transform-origin: bottom right;
-            transition: transform 0.3s ease-out;
-        }
-
-        nav a:hover {
-            color: #fff;
-        }
-
-        nav a:hover:after {
-            transform: scaleX(1);
-            transform-origin: bottom left;
-        }
-
-        section {
-            padding: 40px;
-            max-width: 900px;
-            margin: 50px auto;
-            background-color: rgba(255, 255, 255, 0.9); /* More opaque section */
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-            transform: translateY(-20px);
-            animation: fadeInUp 1s ease-out;
-            text-align: center;
-        }
-
-        h1 {
-            color: #0a192f;
-            animation: slideInLeft 0.5s ease-out;
-        }
-
-        p {
-            animation: fadeIn 1s ease-out;
-        }
-
-        footer {
-            background: #0a192f;
-            color: #fff;
-            text-align: center;
-            padding: 10px;
-            width: 100%;
-            animation: fadeIn 1s ease-in-out;
-            margin-top: auto; /* Push the footer to the bottom */
-        }
-
-        /* Keyframes for animations */
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes slideInDown {
-            from {
-                transform: translateY(-50px);
-            }
-            to {
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes slideInLeft {
-            from {
-                transform: translateX(-50px);
-            }
-            to {
-                transform: translateX(0);
-            }
-        }
-
-        /* Style for additional images */
-        .additional-images {
-            display: flex;
-            flex-wrap: wrap; /* Allow images to wrap to the next line */
-            justify-content: center;
-            margin-top: 30px;
-            animation: fadeInUp 1s ease-out;
-        }
-
-        .additional-images .image-container {
-            width: calc(33.33% - 20px); /* Adjust as needed for the number of images per row */
-            margin: 10px;
-            text-align: center; /* Center the image and text */
-        }
-
-        .additional-images img {
-            max-width: 100%; /* Make images responsive */
-            height: auto;
-            border-radius: 8px;
-            object-fit: cover;
-            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for multiple properties */
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
-        }
-
-        .additional-images img:hover {
-            transform: translateY(-5px) scale(1.05); /* Slight lift and scale on hover */
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Enhance shadow on hover */
-        }
-
-        .additional-images .image-statement {
-            margin-top: 5px;
-            font-style: italic;
-            color: #555;
-            animation: fadeIn 1s ease-out;
-        }
-
-        /* Different font styles for each image */
-        .additional-images .image-container:nth-child(1) .image-statement {
-            font-family: 'Georgia', serif;
-            font-size: 14px;
-        }
-
-        .additional-images .image-container:nth-child(2) .image-statement {
-            font-family: 'Arial', sans-serif;
-            font-size: 13px;
-        }
-
-        .additional-images .image-container:nth-child(3) .image-statement {
-            font-family: 'Courier New', monospace;
-            font-size: 12px;
-        }
-        .additional-images .image-container:nth-child(4) .image-statement {
-            font-family: 'Courier New', monospace;
-            font-size: 12px;
-        }
-        .additional-images .image-container:nth-child(5) .image-statement {
-            font-family: 'Courier New', monospace;
-            font-size: 12px;
-        }
-        .additional-images .image-container:nth-child(6) .image-statement {
-            font-family: 'Courier New', monospace;
-            font-size: 12px;
-        }
-        .additional-images .image-container:nth-child(7) .image-statement {
-            font-family: 'Courier New', monospace;
-            font-size: 12px;
-        }
-        .additional-images .image-container:nth-child(8) .image-statement {
-            font-family: 'Courier New', monospace;
-            font-size: 12px;
-        }
-        .additional-images .image-container:nth-child(9) .image-statement {
-            font-family: 'Courier New', monospace;
-            font-size: 12px;
-        }
-        .additional-images .image-container:nth-child(10) .image-statement {
-            font-family: 'Courier New', monospace;
-            font-size: 12px;
-        }
-        .additional-images .image-container:nth-child(11) .image-statement {
-            font-family: 'Courier New', monospace;
-            font-size: 12px;
-        }
-        .additional-images .image-container:nth-child(12) .image-statement {
-            font-family: 'Courier New', monospace;
-            font-size: 12px;
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 </head>
-<body>
+<body data-bg="home">
     <header>
-        <img src="jay1.jpeg" alt="Profile Image">
+        <img src="jay1.jpg" alt="Profile Image">
         <div>
             <h1>James Mutugi Njogu</h1>
-            <p>Data Analyst | Programmer | IT Specialist</p>
+            <p>Software Engineer | Data Analyst | IT Specialist</p>
         </div>
     </header>
     <nav>
@@ -259,65 +24,253 @@
         <a href="contact.html">Contact</a>
     </nav>
 
-    <section>
-        <img src="jay1.jpeg" alt="James Mutugi Njogu" 
-        style="width: 150px; border-radius: 50%; margin-bottom: 20px;animation: fadeIn 1s ease-in-out;">
-       
-        <h1>Welcome to My Portfolio</h1>
-        <p>Hello! I'm James Mutugi Njogu, a passionate and versatile Data Analyst, Programmer, and IT Specialist. This website is designed to showcase my skills, experience, and projects.</p>
-        <p>Feel free to explore the different sections to learn more about my background, expertise, and accomplishments. I am dedicated to providing data-driven insights, innovative software solutions, and reliable IT support.</p>
-        <p>Thank you for visiting!</p>
-
-        <div class="additional-images">
-            <div class="image-container">
-                <img src="jay2.jpeg" alt="Image 2">
-                <p class="image-statement">"Innovating through code."</p>
+    <section id="home">
+        <!-- HERO SECTION - Two Column Layout -->
+        <div class="hero-section reveal">
+            <div class="hero-content">
+                <h1>Mutugi James Njogu</h1>
+                <div class="designation">IT Support Manager | Cloud & SaaS Systems Specialist</div>
+                <p class="summary">I am a results-oriented technology professional with a strong foundation in Mathematics and Computer Science, specializing in cloud-based systems, SaaS platform administration, IT infrastructure management, and secure digital transformation. My work is driven by precision, accountability, and a commitment to delivering high-performance, compliant, and scalable technology solutions.</p>
+                <div class="cta-group">
+                    <a class="btn btn-primary" href="about.html">Executive Overview</a>
+                    <a class="btn btn-outline" href="contact.html">Connect</a>
+                </div>
             </div>
-            <div class="image-container">
-                <img src="jay3.jpeg" alt="Image 3">
-                <p class="image-statement">"Analyzing data for insights."</p>
-            </div>
-            <div class="image-container">
-                <img src="jay4.jpeg" alt="Image 4">
-                <p class="image-statement">"Solving problems with technology."</p>
-            </div>
-            <div class="image-container">
-                <img src="jay5.jpeg" alt="Image 5">
-                <p class="image-statement">"Innovating through code."</p>
-            </div>
-            <div class="image-container">
-                <img src="jay6.jpeg" alt="Image 6">
-                <p class="image-statement">"Analyzing data for insights."</p>
-            </div>
-            <div class="image-container">
-                <img src="jay7.jpeg" alt="Image 7">
-                <p class="image-statement">"Solving problems with technology."</p>
-            </div>
-            <div class="image-container">
-                <img src="jay8.jpeg" alt="Image 8">
-                <p class="image-statement">"Innovating through code."</p>
-            </div>
-            <div class="image-container">
-                <img src="jay9.jpeg" alt="Image 9">
-                <p class="image-statement">"Analyzing data for insights."</p>
-            </div>
-            <div class="image-container">
-                <img src="jay10.jpeg" alt="Image 10">
-                <p class="image-statement">"Solving problems with technology."</p>
-            </div>
-            <div class="image-container">
-                <img src="jay11.jpeg" alt="Image 11">
-                <p class="image-statement">"Innovating through code."</p>
-            </div>
-            <div class="image-container">
-                <img src="jay12.jpeg" alt="Image 12">
-                <p class="image-statement">"Analyzing data for insights."</p>
+            <div class="hero-image">
+                <img src="jay1.jpg" alt="James Mutugi Njogu - Executive Portrait">
             </div>
         </div>
     </section>
 
+    <!-- PERSONAL IMAGES GALLERY (moved to bottom) -->
+    <!-- Gallery placeholder removed from here and placed above footer for bottom placement -->
+
+    <!-- EXECUTIVE INTRODUCTION SECTION -->
+    <section>
+        <div class="section-header reveal">
+            <div class="section-header-label">Strategic Leadership</div>
+            <h2>Executive Introduction</h2>
+            <div class="divider"></div>
+            <p>With experience leading IT operations in structured institutional environments, I oversee the deployment, administration, and optimization of secure digital systems with enterprise-level expertise.</p>
+        </div>
+
+        <div class="content-block reveal">
+            <p>With comprehensive experience leading IT operations in structured institutional environments, I oversee the deployment, administration, and optimization of secure digital systems. My expertise spans cloud infrastructure reliability, cybersecurity best practices, regulatory data protection compliance, and enterprise-level technical support leadership.</p>
+        </div>
+    </section>
+
+    <!-- PROFESSIONAL FOCUS SECTION -->
+    <section>
+        <div class="section-header reveal">
+            <div class="section-header-label">Core Competencies</div>
+            <h2>Professional Focus</h2>
+            <div class="divider"></div>
+        </div>
+
+        <div class="capability-grid">
+            <div class="capability-card reveal">
+                <h4>Cloud Infrastructure</h4>
+                <p>Cloud-Based SaaS infrastructure management, deployment, and optimization</p>
+            </div>
+            <div class="capability-card reveal">
+                <h4>System Security</h4>
+                <p>Secure system deployment, administration, and infrastructure hardening</p>
+            </div>
+            <div class="capability-card reveal">
+                <h4>Data Governance</h4>
+                <p>Data protection and access control governance with compliance standards</p>
+            </div>
+            <div class="capability-card reveal">
+                <h4>IT Leadership</h4>
+                <p>IT operations leadership and enterprise-level technical support strategy</p>
+            </div>
+            <div class="capability-card reveal">
+                <h4>Software Development</h4>
+                <p>Software and web application development with modern frameworks</p>
+            </div>
+            <div class="capability-card reveal">
+                <h4>Data Architecture</h4>
+                <p>Database architecture design, optimization, and performance management</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- STRATEGIC APPROACH SECTION -->
+    <section>
+        <div class="section-header reveal">
+            <div class="section-header-label">Our Philosophy</div>
+            <h2>Strategic Approach</h2>
+            <div class="divider"></div>
+        </div>
+
+        <div class="values-grid">
+            <div class="value-item reveal">
+                <h4>Operational Clarity</h4>
+                <p>Clear operational structure and transparent communication frameworks</p>
+            </div>
+            <div class="value-item reveal">
+                <h4>Risk Management</h4>
+                <p>Risk-aware system design with proactive security measures</p>
+            </div>
+            <div class="value-item reveal">
+                <h4>Performance Monitoring</h4>
+                <p>Continuous performance monitoring and data-driven optimization</p>
+            </div>
+            <div class="value-item reveal">
+                <h4>Stakeholder Focus</h4>
+                <p>Strong stakeholder communication and collaborative partnerships</p>
+            </div>
+            <div class="value-item reveal">
+                <h4>Sustainability</h4>
+                <p>Long-term sustainability planning and strategic alignment</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT THIS WEBSITE SECTION -->
+    <section>
+        <div class="section-header reveal">
+            <div class="section-header-label">Purpose</div>
+            <h2>About This Platform</h2>
+            <div class="divider"></div>
+        </div>
+
+        <div class="content-block reveal">
+            <p>This platform serves as a professional portfolio and executive overview of my experience, technical competencies, and strategic contributions. It provides comprehensive insight into my professional journey, key projects, technical expertise, certifications, and opportunities for meaningful collaboration in enterprise technology environments.</p>
+        </div>
+    </section>
+
+    <!-- CLOSING SECTION -->
+    <section>
+        <div class="content-block reveal">
+            <h3>Vision for Impact</h3>
+            <p>I am committed to delivering secure, scalable, and strategically aligned digital solutions that create measurable organizational value. With a focus on enterprise-grade infrastructure, compliance excellence, and technical leadership, I drive transformation initiatives that elevate organizational capability and competitive advantage.</p>
+            <p style="margin-top:24px;">Thank you for visiting this platform — I invite you to explore further and connect for strategic collaboration and professional partnership opportunities.</p>
+        </div>
+    </section>
+
+    <!-- PERSONAL IMAGES GALLERY -->
+    <section id="gallery" class="gallery-section reveal from-right">
+        <div class="section-header">
+            <div class="section-header-label">Journey</div>
+            <h2>My Gallery</h2>
+            <div class="divider"></div>
+            <p><strong>More than a gallery — this is a visual story of my life, growth, experiences, and the milestones that define my journey.</strong></p>
+        </div>
+
+        <div class="image-grid" data-stagger="80">
+            <figure class="grid-item reveal">
+                <img src="image1.jpeg" alt="Portrait 1 - James Mutugi Njogu">
+                <figcaption>Portrait — Executive headshot</figcaption>
+            </figure>
+            <figure class="grid-item reveal">
+                <img src="image2.jpeg" alt="Portrait 2 - James Mutugi Njogu">
+                <figcaption>At work — systems overview</figcaption>
+            </figure>
+            <figure class="grid-item reveal">
+                <img src="image3.jpeg" alt="Portrait 3 - James Mutugi Njogu">
+                <figcaption>Speaking at an event</figcaption>
+            </figure>
+            <figure class="grid-item reveal">
+                <img src="image4.jpeg" alt="Portrait 4 - James Mutugi Njogu">
+                <figcaption>Team collaboration</figcaption>
+            </figure>
+            <figure class="grid-item reveal">
+                <img src="image5.jpeg" alt="Portrait 5 - James Mutugi Njogu">
+                <figcaption>Growth — Learning new technologies</figcaption>
+            </figure>
+            <figure class="grid-item reveal">
+                <img src="image6.jpeg" alt="Portrait 6 - James Mutugi Njogu">
+                <figcaption>Leadership — Mentoring teams</figcaption>
+            </figure>
+            <figure class="grid-item reveal">
+                <img src="image7.jpeg" alt="Portrait 7 - James Mutugi Njogu">
+                <figcaption>Milestone — Project completion</figcaption>
+            </figure>
+            <figure class="grid-item reveal">
+                <img src="image8.jpeg" alt="Portrait 8 - James Mutugi Njogu">
+                <figcaption>Vision — Future aspirations</figcaption>
+            </figure>
+            <figure class="grid-item reveal">
+                <img src="image9.jpeg" alt="Portrait 8 - James Mutugi Njogu">
+                <figcaption>Vision — Future aspirations</figcaption>
+            </figure>
+            <figure class="grid-item reveal">
+                <img src="image10.jpeg" alt="Portrait 8 - James Mutugi Njogu">
+                <figcaption>Vision — Future aspirations</figcaption>
+            </figure>
+            <figure class="grid-item reveal">
+                <img src="image11.jpeg" alt="Portrait 8 - James Mutugi Njogu">
+                <figcaption>Vision — Future aspirations</figcaption>
+            </figure>
+            <figure class="grid-item reveal">
+                <img src="image12.jpeg" alt="Portrait 8 - James Mutugi Njogu">
+                <figcaption>Vision — Future aspirations</figcaption>
+            </figure>
+        </div>
+    </section>
+
     <footer>
-        <p>© 2025 James Mutugi Njogu. All Rights Reserved.</p>
+        <div class="footer-content">
+            <div class="footer-section footer-about">
+                <h4>James Mutugi Njogu</h4>
+                <p>Software Engineer | Enterprise Technology Leader</p>
+                <p class="footer-tagline">Transforming business through strategic technology solutions</p>
+            </div>
+            
+            <div class="footer-section footer-links">
+                <h5>Quick Links</h5>
+                <ul>
+                    <li><a href="index.html" aria-label="Home">
+                        <svg class="f-icon" viewBox="0 0 24 24" role="img" aria-hidden="false"><title>Navigate to Home</title><path d="M12 3l9 9-1.4 1.4L18 12.8V20a1 1 0 0 1-1 1h-4v-6H11v6H7a1 1 0 0 1-1-1v-7.2L4.4 13.4 3 12l9-9z" fill="currentColor"/></svg>
+                        <span>Home</span><span class="sr-only">Navigate to Home</span><span class="underline" aria-hidden="true"></span>
+                    </a></li>
+                    <li><a href="about.html" aria-label="About">
+                        <svg class="f-icon" viewBox="0 0 24 24" role="img" aria-hidden="false"><title>About</title><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z" fill="currentColor"/></svg>
+                        <span>About</span><span class="sr-only">About this site</span><span class="underline" aria-hidden="true"></span>
+                    </a></li>
+                    <li><a href="experience.html" aria-label="Experience">
+                        <svg class="f-icon" viewBox="0 0 24 24" role="img" aria-hidden="false"><title>Experience</title><path d="M4 4h16v4H4zM4 10h16v10H4z" fill="currentColor"/></svg>
+                        <span>Experience</span><span class="sr-only">View experience</span><span class="underline" aria-hidden="true"></span>
+                    </a></li>
+                    <li><a href="projects.html" aria-label="Projects">
+                        <svg class="f-icon" viewBox="0 0 24 24" role="img" aria-hidden="false"><title>Projects</title><path d="M3 7h18v2H3zm0 4h18v2H3zm0 4h18v2H3z" fill="currentColor"/></svg>
+                        <span>Projects</span><span class="sr-only">See projects</span><span class="underline" aria-hidden="true"></span>
+                    </a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section footer-contact">
+                <h5>Connect</h5>
+                <ul>
+                    <li><a href="mailto:your@email.com" aria-label="Email">
+                        <svg class="f-icon" viewBox="0 0 24 24" role="img" aria-hidden="false"><title>Email</title><desc>Send an email to James Mutugi Njogu</desc><path d="M3 8.5v7a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        <span>Email</span><span class="sr-only">Send an email to James Mutugi Njogu</span><span class="underline" aria-hidden="true"></span>
+                    </a></li>
+                    <li><a href="https://linkedin.com" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+                        <svg class="f-icon" viewBox="0 0 24 24" role="img" aria-hidden="false"><title>LinkedIn</title><desc>Open LinkedIn profile in a new tab</desc><path d="M16 8a4 4 0 0 1 4 4v6h-4v-6a2 2 0 0 0-4 0v6h-4v-12h4v2.3a4 4 0 0 1 4-2.3z" fill="currentColor"/></svg>
+                        <span>LinkedIn</span><span class="sr-only">Open LinkedIn profile in a new tab</span><span class="underline" aria-hidden="true"></span>
+                    </a></li>
+                    <li><a href="https://github.com" target="_blank" rel="noreferrer" aria-label="GitHub">
+                        <svg class="f-icon" viewBox="0 0 24 24" role="img" aria-hidden="false"><title>GitHub</title><desc>Open GitHub profile in a new tab</desc><path d="M12 .5C5.73.5.5 5.74.5 12.02c0 5.09 3.29 9.4 7.86 10.93.57.1.78-.25.78-.56 0-.28-.01-1.02-.02-2-3.2.7-3.88-1.37-3.88-1.37-.52-1.32-1.27-1.67-1.27-1.67-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.02 1.75 2.68 1.24 3.33.95.1-.74.4-1.24.73-1.52-2.56-.29-5.26-1.28-5.26-5.7 0-1.26.45-2.3 1.19-3.11-.12-.29-.52-1.46.11-3.04 0 0 .97-.31 3.18 1.19.92-.26 1.9-.39 2.88-.39.98 0 1.96.13 2.88.39 2.21-1.5 3.18-1.19 3.18-1.19.63 1.58.23 2.75.11 3.04.74.81 1.19 1.85 1.19 3.11 0 4.43-2.71 5.4-5.29 5.69.41.36.77 1.07.77 2.16 0 1.56-.01 2.82-.01 3.2 0 .31.21.67.79.56C20.71 21.42 24 17.11 24 12.02 24 5.74 18.27.5 12 .5z" fill="currentColor"/></svg>
+                        <span>GitHub</span><span class="sr-only">Open GitHub profile in a new tab</span><span class="underline" aria-hidden="true"></span>
+                    </a></li>
+                    <li><a href="contact.html" aria-label="Contact">
+                        <svg class="f-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+                        <span>Contact</span><span class="underline" aria-hidden="true"></span>
+                    </a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-divider"></div>
+        
+        <div class="footer-bottom">
+            <p class="copyright">© 2026 James Mutugi Njogu. All Rights Reserved.</p>
+            <p class="footer-credit">Crafted with precision | Enterprise Portfolio</p>
+        </div>
     </footer>
+    <script src="config.js"></script>
+    <script src="assets/main.js"></script>
 </body>
 </html>

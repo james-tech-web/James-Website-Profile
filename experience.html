@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>James Mutugi Njogu - Experience</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Inter', 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
             line-height: 1.6;
@@ -19,79 +20,119 @@
             overflow-x: hidden;
         }
 
-        header {
-            background: rgba(10, 25, 47, 0.7);
-            color: #fff;
-            padding: 20px;
-            text-align: center;
+        /* Timeline / interactive experience styles */
+        .timeline {
+            display: grid;
+            gap: 18px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding: 22px 24px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            transform: translateY(18px);
+            opacity: 0;
+            transition: transform 360ms cubic-bezier(0.4,0,0.2,1), opacity 360ms ease-in-out;
+            border: 1px solid rgba(148, 163, 184, 0.1);
+            cursor: pointer;
+        }
+        
+        .timeline-item:hover {
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
+            transform: translateY(16px) scale(1.01);
+        }
+
+        /* Per-item accent colors */
+        .chev path { fill: currentColor; }
+        .timeline-item.mgeni { border-left: 6px solid #3b82f6; }
+        .timeline-item.mgeni .chev { color: #3b82f6; }
+
+        .timeline-item.ronald { border-left: 6px solid #8b5cf6; }
+        .timeline-item.ronald .chev { color: #8b5cf6; }
+
+        .timeline-item.speedmax { border-left: 6px solid #10b981; }
+        .timeline-item.speedmax .chev { color: #10b981; }
+
+        .timeline-item.mashreeq { border-left: 6px solid #f59e0b; }
+        .timeline-item.mashreeq .chev { color: #f59e0b; }
+
+        .timeline-item.in-view {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .exp-header {
             display: flex;
             align-items: center;
-            justify-content: center;
-            animation: fadeIn 1s ease-in-out;
+            justify-content: space-between;
+            cursor: pointer;
+            gap: 12px;
         }
 
-        header img {
-            width: 100px;
-            height: auto;
-            margin-right: 20px;
-            border-radius: 50%;
+        .exp-meta {
+            color: #6b7280;
+            font-size: 13px;
+            margin-top: 6px;
         }
 
-        nav {
-            margin: 20px 0;
-            text-align: center;
-            animation: slideInDown 0.5s ease-out;
+        .exp-body {
+            margin-top: 12px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 400ms ease, opacity 300ms ease;
+            opacity: 0;
         }
 
-        nav a {
-            color: #64ffda;
-            margin: 0 15px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: color 0.3s ease;
-            display: inline-block;
-            position: relative;
+        .timeline-item.open .exp-body {
+            opacity: 1;
         }
 
-        nav a:after {
-            content: '';
-            position: absolute;
-            width: 100%;
-            transform: scaleX(0);
-            height: 2px;
-            bottom: 0;
-            left: 0;
-            background-color: #fff;
-            transform-origin: bottom right;
-            transition: transform 0.3s ease-out;
+        .chev {
+            width: 18px;
+            height: 18px;
+            transition: transform 300ms ease;
+            flex-shrink: 0;
+            color: #0a192f;
         }
 
-        nav a:hover {
-            color: #fff;
+        .timeline-item.open .chev { transform: rotate(90deg); }
+
+        .exp-list {
+            margin-top: 10px;
+            padding-left: 18px;
         }
 
-        nav a:hover:after {
-            transform: scaleX(1);
-            transform-origin: bottom left;
+        @media (max-width: 720px) {
+            .timeline-item { padding: 14px; }
+            section { padding: 20px; }
         }
 
         section {
-            padding: 40px;
+            padding: 50px;
             max-width: 900px;
             margin: 50px auto;
-            background-color: rgba(255, 255, 255, 0.9);
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
             transform: translateY(-20px);
-            animation: fadeInUp 1s ease-out;
+            animation: fadeInUp 0.5s cubic-bezier(0.4,0,0.2,1) both;
+            border: 1px solid rgba(148, 163, 184, 0.1);
+            backdrop-filter: blur(10px);
         }
 
         h2 {
-            color: #0a192f;
-            border-bottom: 3px solid #64ffda;
-            padding-bottom: 5px;
-            margin-bottom: 20px;
+            color: #0f172a;
+            font-family: 'Playfair Display', serif;
+            border-bottom: 3px solid #0ea5e9;
+            padding-bottom: 8px;
+            margin-bottom: 24px;
             animation: slideInLeft 0.5s ease-out;
+            font-size: 28px;
         }
 
         p {
@@ -108,14 +149,14 @@
         }
 
         footer {
-            background: #0a192f;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
             color: #fff;
             text-align: center;
-            padding: 10px;
-            position: relative;
-            bottom: 0;
+            padding: 20px;
             width: 100%;
             animation: fadeIn 1s ease-in-out;
+            font-size: 14px;
+            border-top: 1px solid rgba(71, 85, 105, 0.2);
         }
 
         /* Style for image containers */
@@ -139,6 +180,42 @@
             object-fit: cover; /* Ensure images fill the container */
             animation: imageFadeIn 1s ease-out; /* Added fade-in animation */
         }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            /* background image handled with a pseudo-element for better overlay control */
+            background-color: #f7fbff;
+            color: #333;
+            overflow-x: hidden; /* Prevent horizontal scroll */
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            align-items: center; /* Center content horizontally */
+            position: relative;
+        }
+
+        /* Background image layer + subtle dark overlay */
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background-image: url('experience.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            z-index: -2;
+            transform: scale(1.02);
+            filter: saturate(0.95) contrast(0.98);
+        }
+
+        body::after {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.35); /* subtle dark overlay */
+            z-index: -1;
+            pointer-events: none;
+        }
 
         .project-image:hover {
             transform: scale(1.05);
@@ -155,14 +232,16 @@
                 transform: translateY(0);
             }
         }
+
+
     </style>
 </head>
-<body>
+<body data-bg="experience">
     <header>
-        <img src="jay1.jpeg" alt="Profile Image">
+        <img src="jay1.jpg" alt="Profile Image">
         <div>
             <h1>James Mutugi Njogu</h1>
-            <p>Data Analyst | Programmer | IT Specialist</p>
+            <p>Software Engineer | Data Analyst | IT Specialist</p>
         </div>
     </header>
     <nav>
@@ -176,36 +255,177 @@
     <section id="experience">
         <h2>Experience</h2>
 
-        <p><strong>SpeedMax Net ISP - Customer & Technical Support (August 2025 - Present)</strong></p>
-        <div class="image-container">
-            <img src="internet1.jpg" alt="SpeedMax Net ISP" class="project-image">
-            <img src="internet2.jpg" alt="SpeedMax Net ISP" class="project-image">
-            <img src="internet3.jpg" alt="SpeedMax Net ISP" class="project-image">
-               <img src="internet4.jpg" alt="SpeedMax Net ISP" class="project-image">
-        </div>
-        <ul>
-            <li>Delivered first-line technical support to internet and TV service customers, resolving issues related to connectivity, speed, and service interruptions.</li>
-            <li>Troubleshot and repaired wireless access points and other hardware, ensuring optimal network performance.</li>
-            <li>Provided remote support via phone and email, guiding customers through troubleshooting steps to resolve their issues.</li>
-        </ul>
+        <div class="timeline">
+            <div class="timeline-item mgeni reveal" aria-expanded="false">
+                <div class="exp-header">
+                    <div>
+                        <strong>Mgeni Online Limited</strong>
+                        <div class="exp-meta">IT Support Manager — Nairobi, Kenya • 2024 – Present</div>
+                    </div>
+                    <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg>
+                </div>
+                <div class="exp-body">
+                    <p>Results-driven IT Support Manager with strong expertise in systems administration, cloud-based SaaS platforms, data protection compliance, and technical support leadership. Currently leading IT operations at MGENI APP, a secure Digital Visitor Management System provider registered with the Office of the Data Protection Commissioner (ODPC).</p>
+                    <strong>Key Responsibilities</strong>
+                    <ul class="exp-list">
+                        <li>Lead IT support operations for the MGENI Digital Visitor Management System across multiple client institutions.</li>
+                        <li>Oversee system deployment, onboarding, and configuration of digital check-in & check-out platforms.</li>
+                        <li>Manage cloud-hosted SaaS infrastructure ensuring high availability and reliability.</li>
+                        <li>Implement and maintain secure data processing systems in compliance with Kenya’s Data Protection Act (2019).</li>
+                        <li>Administer user access control, role-based permissions, and data security protocols.</li>
+                        <li>Provide technical support and troubleshooting for clients across hotels, corporate offices, and institutions.</li>
+                        <li>Monitor and maintain admin dashboards for visitor analytics and reporting.</li>
+                        <li>Support asset control tracking systems for devices and equipment entering premises.</li>
+                        <li>Conduct system training for client administrators and end-users.</li>
+                        <li>Coordinate system upgrades, feature enhancements, and performance optimization.</li>
+                        <li>Maintain backup systems and disaster recovery procedures.</li>
+                        <li>Liaise with developers to identify and resolve bugs or system vulnerabilities.</li>
+                        <li>Ensure compliance with ODPC data processor registration requirements.</li>
+                    </ul>
+                </div>
+            </div>
 
-        <p><strong>Ronald's LLP Audit Firm - IT Support (March 2024 - October 2024)</strong></p>
-        <div class="image-container">
-            <img src="audit3.jpg" alt="Audit Firm" class="project-image">
-            <img src="audit2.jpg" alt="Audit Firm" class="project-image">
-            <img src="audit1.jpg" alt="Audit Firm" class="project-image">
-              <img src="audit4.jpg" alt="Audit Firm" class="project-image">
+            <div class="timeline-item ronald reveal" aria-expanded="false">
+                <div class="exp-header">
+                    <div>
+                        <strong>Ronald's LLP (Audit Firm)</strong>
+                        <div class="exp-meta">IT Support and Technician — March 2024 – October 2024</div>
+                    </div>
+                    <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg>
+                </div>
+                <div class="exp-body">
+                    <p>Provided comprehensive IT support for an accounting and audit firm, ensuring reliable technology services for staff and clients.</p>
+                    <strong>Key Responsibilities & Achievements</strong>
+                    <ul class="exp-list">
+                        <li>Implemented and trained staff on Google Workspace (Gmail, Calendar, Drive, Docs, Sheets, Slides) to improve collaboration.</li>
+                        <li>Deployed Google Chat for real-time team communication and collaboration.</li>
+                        <li>Managed IP phone system and ensured optimal call quality.</li>
+                        <li>Troubleshot computer problems, resolved hardware and software issues, and reduced downtime.</li>
+                        <li>Maintained network infrastructure and ensured secure connectivity.</li>
+                        <li>Managed hardware and printers, and performed regular software maintenance and upgrades.</li>
+                    </ul>
+                    <strong>Key Skills</strong>
+                    <ul class="exp-list">
+                        <li>Google Workspace Suite</li>
+                        <li>XPM management and support</li>
+                        <li>Website management & SEO basics</li>
+                        <li>Network administration and troubleshooting</li>
+                        <li>Customer service and technical support</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="timeline-item speedmax reveal" aria-expanded="false">
+                <div class="exp-header">
+                    <div>
+                        <strong>SpeedMax Net (Internet Service Provider)</strong>
+                        <div class="exp-meta">Customer Care & Technical Support</div>
+                    </div>
+                    <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg>
+                </div>
+                <div class="exp-body">
+                    <p>Customer-focused technical support specialist with experience in the ISP industry. Skilled in troubleshooting network issues, resolving customer complaints, and providing technical assistance to ensure seamless connectivity.</p>
+                    <strong>Key Responsibilities</strong>
+                    <ul class="exp-list">
+                        <li>Provided first-level customer support via phone, email, and live chat, resolving issues on first contact.</li>
+                        <li>Troubleshot internet outages, slow speeds, and network interruptions.</li>
+                        <li>Configured and supported routers, modems, and home network setups.</li>
+                        <li>Used ticketing systems such as Zendesk and Freshdesk to manage cases and escalations.</li>
+                        <li>Performed on-site and remote technical support and installations.</li>
+                    </ul>
+                    <strong>Key Skills</strong>
+                    <ul class="exp-list">
+                        <li>Customer service & relationship management</li>
+                        <li>Network troubleshooting (LAN/WAN, routers, modems)</li>
+                        <li>Internet connectivity setup & configuration</li>
+                        <li>Ticketing systems (Zendesk, Freshdesk)</li>
+                        <li>Complaint resolution & escalation handling</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="timeline-item mashreeq reveal" aria-expanded="false">
+                <div class="exp-header">
+                    <div>
+                        <strong>Mashreeq Investments Limited</strong>
+                        <div class="exp-meta">Procurement & Tendering Officer</div>
+                    </div>
+                    <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg>
+                </div>
+                <div class="exp-body">
+                    <p>Detail-oriented procurement professional experienced in preparing, coordinating, and submitting compliant bids for international tenders (UN agencies, NGOs, public sector). Skilled at managing technical proposals, financial pricing, compliance documentation, and supplier coordination.</p>
+                    <strong>Key Responsibilities</strong>
+                    <ul class="exp-list">
+                        <li>Prepared and submitted complete tender packages for international procurement opportunities (UNDP, UNICEF, FAO, IOM, government entities).</li>
+                        <li>Developed technical proposals, compliance matrices, and catalogs per tender specifications.</li>
+                        <li>Prepared financial offers, price schedules, and cost breakdowns.</li>
+                        <li>Coordinated with manufacturers and suppliers for authorization letters, warranties, and technical datasheets.</li>
+                        <li>Managed clarification requests from evaluation committees and drafted professional responses.</li>
+                        <li>Maintained organized records of bids, contracts, and supporting documentation.</li>
+                    </ul>
+                </div>
+            </div>
         </div>
-        <ul>
-            <li>Provide comprehensive IT support for a large-scale accounting and audit firm, ensuring a reliable and efficient technology environment for over 100 users.</li>
-            <li>Installed and maintained a network printer system, resolving connectivity issues and streamlining printing operations.</li>
-            <li>Managed and updated company software licenses, ensuring compliance and optimizing software costs.</li>
-            <li>Diagnosed and resolved hardware and software issues for laptops, desktops, and company servers, minimizing downtime and improving productivity.</li>
-            <li>Provided support for both Windows and Mac operating systems.</li>
-        </ul>
     </section>
     <footer>
-        <p>© 2024 James Mutugi Njogu. All Rights Reserved.</p>
+        <div class="footer-content">
+            <div class="footer-section footer-about">
+                <h4>James Mutugi Njogu</h4>
+                <p>Software Engineer | Enterprise Technology Leader</p>
+                <p class="footer-tagline">Transforming business through strategic technology solutions</p>
+            </div>
+            
+            <div class="footer-section footer-links">
+                <h5>Quick Links</h5>
+                <ul>
+                    <li><a href="index.html" aria-label="Home"><svg class="f-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg><span>Home</span><span class="underline" aria-hidden="true"></span></a></li>
+                    <li><a href="about.html" aria-label="About"><svg class="f-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg><span>About</span><span class="underline" aria-hidden="true"></span></a></li>
+                    <li><a href="experience.html" aria-label="Experience"><svg class="f-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg><span>Experience</span><span class="underline" aria-hidden="true"></span></a></li>
+                    <li><a href="projects.html" aria-label="Projects"><svg class="f-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg><span>Projects</span><span class="underline" aria-hidden="true"></span></a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section footer-contact">
+                <h5>Connect</h5>
+                <ul>
+                    <li><a href="mailto:your@email.com" aria-label="Email"><svg class="f-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5v7a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M21 8.5L12 14 3 8.5"/></svg><span>Email</span><span class="underline" aria-hidden="true"></span></a></li>
+                    <li><a href="https://linkedin.com" target="_blank" rel="noreferrer" aria-label="LinkedIn"><svg class="f-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 3a4 4 0 0 1 4 4v10"/><path d="M2 9h6v11H2z"/><path d="M8 7a4 4 0 0 1 8 0v13"/></svg><span>LinkedIn</span><span class="underline" aria-hidden="true"></span></a></li>
+                    <li><a href="https://github.com" target="_blank" rel="noreferrer" aria-label="GitHub"><svg class="f-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2C8 2 5 5 5 9c0 3 2 4 2 4s-1 1-1 3v3h10v-3c0-2-1-3-1-3s2-1 2-4c0-4-3-7-7-7z"/></svg><span>GitHub</span><span class="underline" aria-hidden="true"></span></a></li>
+                    <li><a href="contact.html" aria-label="Contact"><svg class="f-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg><span>Contact</span><span class="underline" aria-hidden="true"></span></a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-divider"></div>
+        
+        <div class="footer-bottom">
+            <p class="copyright">© 2026 James Mutugi Njogu. All Rights Reserved.</p>
+            <p class="footer-credit">Crafted with precision | Enterprise Portfolio</p>
+        </div>
     </footer>
+    <script>
+        // Accordion toggle + smooth expand using max-height
+        document.addEventListener('DOMContentLoaded', function() {
+            const items = document.querySelectorAll('.timeline-item');
+            items.forEach(item => {
+                const header = item.querySelector('.exp-header');
+                const body = item.querySelector('.exp-body');
+                // initialize maxHeight if open
+                if (item.classList.contains('open')) body.style.maxHeight = body.scrollHeight + 'px';
+
+                header.addEventListener('click', () => {
+                    const isOpen = item.classList.toggle('open');
+                    item.setAttribute('aria-expanded', isOpen);
+                    if (isOpen) {
+                        body.style.maxHeight = body.scrollHeight + 'px';
+                    } else {
+                        body.style.maxHeight = 0;
+                    }
+                });
+            });
+        });
+    </script>
+    <script src="config.js"></script>
+    <script src="assets/main.js"></script>
 </body>
 </html>

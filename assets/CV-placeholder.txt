@@ -1,0 +1,11 @@
+This is a placeholder file to show where your CV should go.
+
+To make the "Download CV" button work on the site:
+
+1. Replace this placeholder by uploading your real CV as a PDF named `resume.pdf`.
+2. Place the file at `assets/resume.pdf` (relative to the site root).
+3. The site link in `about.html` already points to `assets/resume.pdf` and uses the `download` attribute.
+
+After replacing, open `about.html` in a browser and click "Download CV" to verify it downloads.
+
+If you prefer a different filename or location, update the `href` in the `about.html` link accordingly.

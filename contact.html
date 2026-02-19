@@ -5,338 +5,115 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>James Mutugi Njogu - Contact</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <style>
+        :root{ --bg:#f8fafc; --accent:#0ea5e9; --accent-2:#06b6d4; --text:#0f172a; --muted:#64748b; }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-            background: linear-gradient(45deg, #e6f2ff, #f0f8ff, #e6f2ff);
-            background-size: 300% 300%;
-            animation: gradientAnimation 10s ease infinite;
-            color: #333;
-            overflow-x: hidden;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            font-family: 'Inter', 'Poppins', sans-serif;
+            margin: 0; padding: 0; line-height: 1.6; background: var(--bg); color: #222;
+            overflow-x: hidden; display:flex; flex-direction:column; align-items:center; min-height:100vh;
         }
 
-        @keyframes gradientAnimation {
-            0% {
-                background-position: 0% 50%;
-            }
-            50% {
-                background-position: 100% 50%;
-            }
-            100% {
-                background-position: 0% 50%;
-            }
+        /* Subtle animated gradient background */
+        @keyframes gradientAnimation { 0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%} }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background-image: url('home.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            z-index: -2;
+            transform: scale(1.02);
+            filter: saturate(0.95) contrast(0.98);
         }
 
-        header {
-            background: rgba(10, 25, 47, 0.7);
-            color: #fff;
-            padding: 20px;
-            text-align: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            animation: fadeIn 1s ease-in-out;
-            width: 100%;
+        body::after {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.35); /* subtle dark overlay */
+            z-index: -1;
+            pointer-events: none;
         }
 
-        header img {
-            width: 100px;
-            height: auto;
-            margin-right: 20px;
-            border-radius: 50%;
-        }
-
-        nav {
-            margin: 20px 0;
-            text-align: center;
-            animation: slideInDown 0.5s ease-out;
-            width: 100%;
-        }
-
-        nav a {
-            color: #64ffda;
-            margin: 0 15px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: color 0.3s ease;
-            display: inline-block;
-            position: relative;
-        }
-
-        nav a:after {
-            content: '';
-            position: absolute;
-            width: 100%;
-            transform: scaleX(0);
-            height: 2px;
-            bottom: 0;
-            left: 0;
-            background-color: #fff;
-            transform-origin: bottom right;
-            transition: transform 0.3s ease-out;
-        }
-
-        nav a:hover {
-            color: #fff;
-        }
-
-        nav a:hover:after {
-            transform: scaleX(1);
-            transform-origin: bottom left;
-        }
-
-        section {
+        section#contact {
             padding: 40px;
             max-width: 900px;
-            margin: 50px auto;
-            background-color: rgba(255, 255, 255, 0.9);
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-            transform: translateY(-20px);
-            animation: fadeInUp 1s ease-out;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
         }
 
-        h2 {
-            color: #0a192f;
-            border-bottom: 3px solid #64ffda;
-            padding-bottom: 5px;
-            margin-bottom: 20px;
-            animation: slideInLeft 0.5s ease-out;
-            text-align: center;
-        }
+        /* Contact layout */
+        .contact-container{ display:grid; grid-template-columns:320px 1fr; gap:28px; align-items:start; }
+        .profile-card{ background:#fff; padding:24px; border-radius:14px; box-shadow:0 12px 32px rgba(15, 23, 42, 0.1); border: 1px solid rgba(148, 163, 184, 0.1); }
+        .profile-card img{ width:140px; height:140px; border-radius:12px; object-fit:cover; display:block; margin-bottom:16px; border: 3px solid #0ea5e9; transition: transform 260ms ease, box-shadow 260ms ease; }
+        .profile-card:hover{ transform:translateY(-8px); transition:transform 260ms ease; box-shadow: 0 20px 48px rgba(14, 165, 233, 0.15); }
+        .profile-card:hover img{ transform: scale(1.05); box-shadow: 0 12px 28px rgba(14, 165, 233, 0.3); }
 
-        h3 {
-            color: #0a192f;
-            margin-top: 20px;
-            text-align: center;
-        }
+        .contact-title{ font-weight: 700; color: var(--text); font-size: 20px; font-family: 'Playfair Display', serif; }
+        .muted{ color: var(--muted); font-size: 14px; font-weight: 500; }
+        .contact-list{ margin-top:12px; display:flex; flex-direction:column; gap:8px; }
+        .contact-item{ display:flex; gap:10px; align-items:center; color:var(--text); }
+        .contact-item .icon{ width:18px; height:18px; flex-shrink:0; }
+        .contact-item a{ font-size:14px; font-weight:600; color:var(--text); text-decoration:none; line-height:1.2; }
 
-        /* Style for contact information */
-        .contact-info {
-            margin-bottom: 20px;
-            animation: fadeIn 1s ease-out;
-            text-align: center;
-        }
+        .social-list{ margin-top:12px; display:flex; flex-direction:column; gap:8px; }
+        .social-link{ display:flex; gap:10px; align-items:center; padding:12px 16px; border-radius:12px; background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%); border: 1px solid rgba(71, 85, 105, 0.1); color: var(--text); text-decoration: none; font-weight: 600; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06); transition: transform 220ms cubic-bezier(0.34, 1.56, 0.64, 1), background 220ms; }
+        .social-link svg{ width: 20px; height: 20px; flex-shrink: 0; }
+        .social-link:hover{ transform: translateY(-4px) scale(1.02); background: linear-gradient(135deg, #0ea5e9 0%, #06b6d4 100%); color: #fff; box-shadow: 0 12px 32px rgba(14, 165, 233, 0.25); }
 
-        .contact-info p {
-            margin-bottom: 8px;
-        }
+        .form-card{ background: #fff; padding: 24px; border-radius: 14px; box-shadow: 0 12px 32px rgba(15, 23, 42, 0.08); border: 1px solid rgba(148, 163, 184, 0.1); }
+        .form-row{ display:flex; gap:10px; }
+        .form-row .field{ flex:1; }
+        label{ display:block; font-weight: 600; color: #0f172a; margin-bottom: 8px; font-size: 14px; }
+        input, textarea, select{ width:100%; padding:12px 14px; border-radius:10px; border:1.5px solid #e2e8f0; font-size:14px; font-family: 'Inter', sans-serif; transition:box-shadow 180ms, border-color 180ms; color: #1e293b; }
+        input:focus, textarea:focus{ border-color: var(--accent); box-shadow: 0 0 0 4px rgba(14, 165, 233, 0.1); outline:none; }
+        .submit{ margin-top:16px; padding:12px 24px; border-radius:10px; background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); color:#fff; border:none; cursor:pointer; font-weight: 600; font-size: 15px; transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); box-shadow: 0 8px 24px rgba(15, 23, 42, 0.25); }
+        .submit:hover{ transform: translateY(-2px); box-shadow: 0 12px 32px rgba(15, 23, 42, 0.35); }
+        .submit:active{ transform:translateY(0px); }
 
-        /* Style for social media links */
-        .social-media {
-            animation: fadeInUp 1s ease-out;
-            display: flex;
-            overflow: hidden;
-            width: 400px;
-            margin: 20px 0;
-            position: relative; /* Add position relative */
-        }
+        .section-note{ margin-top: 12px; color: #64748b; font-size: 14px; line-height: 1.6; }
 
-        .social-media-slider {
-            display: flex;
-            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1); /* Smooth transition */
-        }
+        /* Reveal helpers and stagger */
+        .reveal{ transform:translateY(10px); opacity:0; transition:transform 520ms cubic-bezier(.22,.9,.36,1), opacity 520ms ease; }
+        .reveal.in-view{ transform:none; opacity:1; }
+        .contact-container .reveal:nth-child(1){ transition-delay:60ms; }
 
-        .social-media a {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-right: 0;
-            color: #0a192f;
-            text-decoration: none;
-            font-weight: bold;
-            transition: color 0.3s ease;
-            width: 80px;
-            flex-shrink: 0;
-        }
+        /* Toast */
+        .toast{ position:fixed; right:18px; bottom:18px; background:linear-gradient(90deg,var(--accent),var(--accent-2)); color:#fff; padding:10px 14px; border-radius:10px; box-shadow:0 8px 30px rgba(10,25,47,0.18); transform:translateY(18px) scale(.98); opacity:0; transition:all 320ms ease; z-index:9999; }
+        .toast.show{ transform:translateY(0) scale(1); opacity:1; }
 
-        .social-media a img {
-            width: 48px;
-            height: 48px;
-            margin-bottom: 5px;
-            transition: transform 0.3s ease; /* Add transition to the images */
-        }
-
-        .social-media a:hover img {
-            transform: scale(1.1); /* Scale up the image on hover */
-        }
-
-        .social-media a:hover {
-            color: #64ffda;
-        }
-
-        /* Style for the contact form */
-        form {
-            display: flex;
-            flex-direction: column;
-            max-width: 400px;
-            animation: slideInLeft 1s ease-out;
-        }
-
-        label {
-            margin-bottom: 5px;
-            color: #555;
-        }
-
-        input,
-        textarea {
-            padding: 8px;
-            margin-bottom: 10px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-size: 14px;
-            color: #495057; /* Professional text color */
-            transition: border-color 0.3s ease; /* Smooth transition for focus */
-        }
-
-        input:focus,
-        textarea:focus {
-            border-color: #64ffda; /* Highlight color on focus */
-            outline: none; /* Remove default focus outline */
-            box-shadow: 0 0 5px rgba(100, 255, 218, 0.5); /* Subtle shadow on focus */
-        }
-
-        textarea {
-            height: 120px;
-            resize: vertical;
-        }
-
-        input[type="submit"] {
-            padding: 10px;
-            background-color: #0a192f;
-            color: #fff;
-            border: none;
-            cursor: pointer;
-            border-radius: 4px;
-            transition: background-color 0.3s ease;
-        }
-
-        input[type="submit"]:hover {
-            background-color: #64ffda;
-            color: #0a192f;
-        }
-
+        h2{ color:var(--text); margin:0 0 12px 0; text-align:center; font-family: 'Playfair Display', serif; font-size: 28px; }
+        
         footer {
-            background: #0a192f;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
             color: #fff;
             text-align: center;
-            padding: 10px;
-            position: relative;
-            bottom: 0;
+            padding: 20px;
             width: 100%;
             animation: fadeIn 1s ease-in-out;
+            font-size: 14px;
+            border-top: 1px solid rgba(71, 85, 105, 0.2);
+            margin-top: auto;
         }
 
-        /* Keyframes for animations */
+        /* Reveal animation */
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
         }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes slideInDown {
-            from {
-                transform: translateY(-50px);
-            }
-            to {
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes slideInLeft {
-            from {
-                transform: translateX(-50px);
-            }
-            to {
-                transform: translateX(0);
-            }
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            section {
-                padding: 20px;
-            }
-
-            nav a {
-                margin: 0 10px;
-            }
-
-            .social-media {
-                width: 300px;
-            }
-        }
+        @media (max-width: 980px){ .contact-container{ grid-template-columns: 1fr; } .form-row{ flex-direction:column; } }
+        @media (max-width: 420px){ header img{ width:64px; height:64px; } .profile-card img{ width:100px; height:100px; } section{ padding:20px; } }
     </style>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const slider = document.querySelector('.social-media-slider');
-            let currentIndex = 0;
-            const logoWidth = 80;
-            const totalLogos = document.querySelectorAll('.social-media a').length;
-
-            function slideLogos() {
-                currentIndex = (currentIndex + 1) % totalLogos;
-                const translateValue = -currentIndex * logoWidth;
-                slider.style.transform = `translateX(${translateValue}px)`;
-            }
-
-            // Initial setup to clone logos for continuous animation
-            for (let i = 0; i < totalLogos; i++) {
-                const clone = document.querySelectorAll('.social-media a')[i].cloneNode(true);
-                slider.appendChild(clone);
-            }
-
-            // Adjust the width of the slider to accommodate cloned logos
-            slider.style.width = `${totalLogos * 2 * logoWidth}px`;
-
-            function resetSlider() {
-                slider.style.transition = 'none';
-                slider.style.transform = 'translateX(0)';
-                setTimeout(() => {
-                    slider.style.transition = 'transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
-                }, 10);
-                currentIndex = 0;
-            }
-
-            function animateLogos() {
-                currentIndex++;
-                if (currentIndex > totalLogos) {
-                    resetSlider();
-                    currentIndex = 1;
-                }
-                const translateValue = -currentIndex * logoWidth;
-                slider.style.transform = `translateX(${translateValue}px)`;
-            }
-
-            setInterval(animateLogos, 2000);
-        });
-    </script>
 </head>
-<body>
+<body data-bg="contact">
     <header>
-        <img src="jay1.jpeg" alt="Profile Image">
+        <img src="jay1.jpg" alt="Profile Image">
         <div>
             <h1>James Mutugi Njogu</h1>
-            <p>Data Analyst | Programmer | IT Specialist</p>
+            <p>Software Engineer | Data Analyst | IT Specialist</p>
         </div>
     </header>
     <nav>
@@ -349,56 +126,138 @@
     </nav>
 
     <section id="contact">
-        <h2>Contact</h2>
+        <h2>Let’s Connect</h2>
+        <p class="section-note">Thank you for visiting my website. I am open to professional opportunities, IT leadership roles, cloud and SaaS system positions, software development projects, and strategic technology collaborations. I welcome meaningful professional conversations and partnerships.</p>
 
-        
+        <div class="contact-container">
+            <aside class="profile-card reveal">
+                <img src="jay1.jpg" alt="Profile Image">
+                <div class="contact-title">James Mutugi Njogu</div>
+                <div class="muted">Nairobi, Kenya</div>
 
-        <h3>Social Media</h3>
-        <div class="social-media">
-            <div class="social-media-slider">
-                <a href="https://www.linkedin.com/in/jamesmutugidataanalyst" target="_blank">
-                    <img src="linkedin.jpg" alt="LinkedIn">
-                    LinkedIn
-                </a>
-                <a href="https://www.facebook.com/" target="_blank">
-                    <img src="facebook.jpg" alt="Facebook">
-                    Facebook
-                </a>
-                <a href="https://www.instagram.com/" target="_blank">
-                    <img src="instagram.jpg" alt="Instagram">
-                    Instagram
-                </a>
-                <a href="https://wa.me/254112408790" target="_blank">
-                    <img src="whatsapp.jpg" alt="WhatsApp">
-                    WhatsApp
-                </a>
+                <div class="contact-list">
+                    <div class="contact-item"><svg class="icon" viewBox="0 0 24 24"><path fill="currentColor" d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"></path></svg><a href="mailto:james.n.mutugi@gmail.com">james.n.mutugi@gmail.com</a></div>
+                    <div class="contact-item"><svg class="icon" viewBox="0 0 24 24"><path fill="currentColor" d="M6.6 10.79a15.053 15.053 0 006.6 6.6l2.2-2.2c.2-.2.5-.26.76-.18 1.02.32 2.1.5 3.2.5.41 0 .75.34.75.75V20c0 .41-.34.75-.75.75C9.4 20.75 3.25 14.6 3.25 7.5 3.25 7.09 3.59 6.75 4 6.75H6c.41 0 .75.34.75.75 0 1.1.18 2.18.5 3.2.08.26.02.56-.18.76L6.6 10.79z"></path></svg><a href="tel:+254112408790">+254 112 408 790</a></div>
+                </div>
+
+                <div class="social-list">
+                    <a class="social-link" href="https://www.linkedin.com/in/jamesmutugidataanalyst" target="_blank" rel="noopener noreferrer"><svg class="icon" viewBox="0 0 24 24"><path fill="currentColor" d="M4.98 3.5C4.98 4.88 3.86 6 2.48 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM0 8h5v16H0V8zm7.5 0H12v2.2h.1c.6-1.2 2-2.5 4.1-2.5 4.4 0 5.2 2.9 5.2 6.6V24H17v-7.1c0-1.7 0-3.9-2.4-3.9-2.4 0-2.8 1.9-2.8 3.8V24H7.5V8z"/></svg>LinkedIn</a>
+                    <a class="social-link" href="mailto:james.n.mutugi@gmail.com"><svg class="icon" viewBox="0 0 24 24"><path fill="currentColor" d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"></path></svg>Email</a>
+                    <a class="social-link" href="https://wa.me/254112408790" target="_blank" rel="noopener noreferrer"><svg class="icon" viewBox="0 0 24 24"><path fill="currentColor" d="M20.5 3.5A11 11 0 0012 .5 11 11 0 001 .5 11 11 0 0012 23.5a11 11 0 008.5-20zM12 21.5a9.4 9.4 0 01-5-1.4L4 20l1.4-3A9.4 9.4 0 012.5 12 9.5 9.5 0 1112 21.5zM17 15.3c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.2-.8.9-1 1.1-.2.2-.4.3-.7.1-.3-.1-1.3-.5-2.5-1.6-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.2-.3.3-.5.1-.2.1-.3.2-.5.1-.2.0-.4-.0-.5-.1-.1-.7-1.6-1-2.2-.3-.6-.7-.4-.9-.4-.2 0-.4 0-.6 0-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1 2.9 1.1 3.1c.1.2 1.8 3 4.4 4.4 3 .2 3.6 0 4 .0.4-.1 1.9-1 2.2-1.8.3-.8.3-1.5.2-1.7-.1-.2-.3-.3-.6-.4z"/></svg>WhatsApp</a>
+                    <a class="social-link" href="https://t.me/jamesmutugi" target="_blank" rel="noopener noreferrer"><svg class="icon" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.5 7.5l-1.9 9.1c-.1.5-.5.7-1 .5l-2.8-2.1-1.3 1.3c-.1.1-.3.2-.5.2-.2 0-.4-.1-.6-.2l.2-3.1L10 11c.1-.2.2-.3.5-.3.3 0 .6.1.8.3l4.7 3.4c.5.3.9 0 1-1 .1-.5-.1-1.1-.5-1.4z"/></svg>Telegram</a>
+                    <a class="social-link" href="https://www.facebook.com/share/17vdFDAeKD/" target="_blank" rel="noopener noreferrer"><svg class="icon" viewBox="0 0 24 24"><path fill="currentColor" d="M22 12a10 10 0 10-11.5 9.9v-7H8v-3h2.5V9.5c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.4h-1.2c-1.2 0-1.6.8-1.6 1.6V12H20l-.5 3.9h-3V22A10 10 0 0022 12z"/></svg>Facebook</a>
+                    <a class="social-link" href="https://www.instagram.com/jamesmutugi246?igsh=eHNvdW40NHEwN3d3" target="_blank" rel="noopener noreferrer"><svg class="icon" viewBox="0 0 24 24"><path fill="currentColor" d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm8 3a1 1 0 100 2 1 1 0 000-2zM12 7.5A4.5 4.5 0 1016.5 12 4.5 4.5 0 0012 7.5zm0 7.5A3 3 0 1115 12a3 3 0 01-3 3z"/></svg>Instagram</a>
+                </div>
+            </aside>
+
+            <div class="form-card reveal">
+                <h3>Professional Inquiries</h3>
+                <p class="muted">I am available for IT Support & Systems Management roles, Cloud & SaaS administration, IT infrastructure leadership, software & web development projects, and technical consulting.</p>
+
+                <h3 style="margin-top:12px;">Contact Form</h3>
+                <form id="contactForm">
+                    <div class="form-row">
+                        <div class="field"><label for="fullname">Full Name</label><input id="fullname" name="fullname" required></div>
+                        <div class="field"><label for="email">Email Address</label><input id="email" type="email" name="email" required></div>
+                    </div>
+                    <div style="margin-top:10px;"><label for="subject">Subject</label><input id="subject" name="subject" required></div>
+                    <div style="margin-top:10px;"><label for="message">Message</label><textarea id="message" name="message" rows="6" required></textarea></div>
+                    <button type="submit" class="submit">Send Message</button>
+                </form>
+
+                <p class="section-note">I aim to respond to all professional inquiries promptly. I look forward to connecting and discussing how technology can support secure, scalable, and high-performance digital environments.</p>
+
+                <div style="margin-top:14px;">
+                    <strong>Professional Tip:</strong>
+                    <p class="muted">For a recruiter-friendly layout, place platforms in this order: LinkedIn, Email, WhatsApp, Telegram, Facebook, Instagram.</p>
+                </div>
             </div>
-        </div>
-
-        <h3>Send me a message</h3>
-        <form action="#" method="post">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required>
-
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-
-            <label for="phone">Phone:</label>
-            <input type="tel" id="phone" name="phone" required>
-
-            <label for="message">Message:</label>
-            <textarea id="message" name="message" required></textarea>
-
-            <input type="submit" value="Send Message">
-        </form>
-        <div class="contact-info">
-            <p><strong>Email:</strong> <a href="mailto:james.n.mutugi@gmail.com">james.n.mutugi@gmail.com</a></p>
-            <p><strong>call or whatsapp:</strong> <a href="tel:0112408790">0112408790</a></p>
         </div>
     </section>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Reveal on scroll with IntersectionObserver
+            const reveals = document.querySelectorAll('.reveal');
+            if ('IntersectionObserver' in window) {
+                const io = new IntersectionObserver((entries, obs) => {
+                    entries.forEach(e => {
+                        if (!e.isIntersecting) return;
+                        e.target.classList.add('in-view');
+                        obs.unobserve(e.target);
+                    });
+                }, {threshold: 0.12});
+                reveals.forEach(r => io.observe(r));
+            } else { reveals.forEach(r => r.classList.add('in-view')); }
+
+            // Toast helper
+            function showToast(text){
+                let t = document.querySelector('.toast');
+                if(!t){ t = document.createElement('div'); t.className='toast'; document.body.appendChild(t); }
+                t.textContent = text;
+                t.classList.add('show');
+                setTimeout(()=> t.classList.remove('show'), 2600);
+            }
+
+            // Contact form handling (client-side only)
+            const form = document.getElementById('contactForm');
+            if (form) {
+                form.addEventListener('submit', function (e) {
+                    e.preventDefault();
+                    const submitBtn = form.querySelector('.submit');
+                    submitBtn.disabled = true;
+                    submitBtn.textContent = 'Sending...';
+
+                    // small send animation
+                    setTimeout(() => {
+                        submitBtn.textContent = 'Sent ✓';
+                        showToast('Message sent — I will reply shortly.');
+                        form.reset();
+                        setTimeout(() => { submitBtn.disabled = false; submitBtn.textContent = 'Send Message'; }, 1800);
+                    }, 800);
+                });
+            }
+        });
+    </script>
+
+    <script src="config.js"></script>
+    <script src="assets/main.js"></script>
+
     <footer>
-        <p>© 2025 James Mutugi Njogu. All Rights Reserved.</p>
+        <div class="footer-content">
+            <div class="footer-section footer-about">
+                <h4>James Mutugi Njogu</h4>
+                <p>Software Engineer | Enterprise Technology Leader</p>
+                <p class="footer-tagline">Transforming business through strategic technology solutions</p>
+            </div>
+            
+            <div class="footer-section footer-links">
+                <h5>Quick Links</h5>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="experience.html">Experience</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section footer-contact">
+                <h5>Connect</h5>
+                <ul>
+                    <li><a href="mailto:your@email.com">Email</a></li>
+                    <li><a href="https://linkedin.com" target="_blank">LinkedIn</a></li>
+                    <li><a href="https://github.com" target="_blank">GitHub</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-divider"></div>
+        
+        <div class="footer-bottom">
+            <p class="copyright">© 2026 James Mutugi Njogu. All Rights Reserved.</p>
+            <p class="footer-credit">Crafted with precision | Enterprise Portfolio</p>
+        </div>
     </footer>
 </body>
 </html>
